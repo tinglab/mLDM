@@ -12,6 +12,6 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
             -- genus_associations_ids  G*1 vector  Selected genus-level associations IDs in original TARA known associations table (G = 28)
             -- genus_associations_names  G*2 list  Two genus list of selected genus-level associations
             -- genus_associations_pair  G*3 matrix  
-                -- first column  association IDs
-                -- second column  OTU-1 id
-                -- third column  OTU-2 id
+                -- 1-th column  association IDs
+                -- 2-th column  OTU-1 id
+                -- 3-th column  OTU-2 id
