@@ -3,7 +3,8 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
 
 ## TARA
 ### TARA_Validation_dataset.RData
-            * Selected subset data (67 OTUs, 17 EFs, 221 Samples and 28 known genus-level associations) of original TARA data for validation
+ * Selected subset data (67 OTUs, 17 EFs, 221 Samples and 28 known genus-level associations) of original TARA data for validation
+
             -- X   N*P matrix  N samples, P otus  OTU table (N = 221, P = 67)
             -- M   N*Q matrix  N samples, P environmental factors (Q = 17)
             -- otus_ids  P*1 vector  Selected otus' rank in original TARA OTU table
