@@ -1,18 +1,18 @@
 # mLDM
 mLDM: a new hierarchical Bayesian statistical model for sparse microbial association discovery
 
-Usage:
+##Usage:
   1. R packages: lbfgs, QUIC, dirmult, psych, MASS should be installed first!
   2. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
   3. Source these two files before running mLDM
 
-Input for mLDM.R: <br/>
-  n -- the number of samples <br/>
-  p -- the number of OTUs <br/>
-  q -- the number of environmental factors (EFs) <br/>
-  X -- n*p matrix, OTU data  <br/>
-  M -- n*q matrix, Meta data <br/>
-  Z_mean -- a positive integer for initalization for latent variable Z <br/>
+##Input for mLDM.R: 
+>  n -- the number of samples 
+>  p -- the number of OTUs
+>  q -- the number of environmental factors (EFs) 
+>  X -- n*p matrix, OTU data 
+>  M -- n*q matrix, Meta data 
+>  Z_mean -- a positive integer for initalization for latent variable Z <br/>
             default is 1, but need to set Z_mean a little bit large when  <br/>
             the biggest OTU is >> the smallest OTU, try to maintain the  <br/>
             minimum of latent variable Z >= 0  <br/>
