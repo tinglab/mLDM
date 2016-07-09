@@ -1,13 +1,13 @@
 # mLDM
 mLDM: a new hierarchical Bayesian statistical model for sparse microbial association discovery
 
-##Usage:
+##USAGE:
   1. R packages: lbfgs, QUIC, dirmult, psych, MASS should be installed first!
   2. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
   3. Source these two files before running mLDM
 
+##Input Parameters for mLDM.R:
 ```
-##Input Parameters for mLDM.R: 
   n -- the number of samples 
   p -- the number of OTUs
   q -- the number of environmental factors (EFs) 
