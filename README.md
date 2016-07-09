@@ -48,7 +48,7 @@ list[[11]] -- edges1_vary_list, the change of OTU-OTU associations between two i
 list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two iterations
 ```
 ## TARA
-#### TARA_Validation_dataset.RData
+##### TARA_Validation_dataset.RData
  * Selected subset data (67 OTUs, 17 EFs, 221 Samples and 28 known genus-level associations) of original TARA data for validation
 ```
    X   N*P matrix  N samples, P otus  OTU table (N = 221, P = 67)
@@ -62,3 +62,5 @@ list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two it
         -- 2-th column  OTU-1 id
         -- 3-th column  OTU-2 id
 ```
+##### Suplemental Tabel 4.csv
+Selected 28 known genus-level interactions and corresponding 67 OTUs. Related to Figure 3A. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
