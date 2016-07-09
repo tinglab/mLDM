@@ -65,7 +65,7 @@ list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two it
 #####Suplemental Tabel 4.csv
 Selected 28 known genus-level interactions and corresponding 67 OTUs. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
 
-### CRC
+###Colorectal cancer
 #####Baxter_CRC.RData
 ```
    X   N*P matrix  N samples, P otus  OTU table (N = 490, P = 117)
@@ -79,7 +79,7 @@ OTU table used by mLDM
 #####metadata.csv
 Meta data used by mLDM
 
-###HMP
+###Human Microbiome Project
 #####HMP-All.RData
 ```
    X   N*P matrix  N samples, P otus  OTU table (N = 112, P = 110)
@@ -95,3 +95,7 @@ Meta data used by mLDM
 ```
 #####v13_map_uniquebyPDN_stool.csv
    Human stool samples we selected
+
+###West English Channel dataset 
+######48 not zero data.RData
+Subset of West English Channel dataset selected by mLDM
