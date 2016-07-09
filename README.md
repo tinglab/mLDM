@@ -65,7 +65,7 @@ list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two it
 #####Suplemental Tabel 4.csv
 Selected 28 known genus-level interactions and corresponding 67 OTUs. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
 
-###Colorectal cancer
+###Colorectal Cancer
 #####Baxter_CRC.RData
 ```
    X   N*P matrix  N samples, P otus  OTU table (N = 490, P = 117)
