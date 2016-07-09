@@ -63,4 +63,4 @@ list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two it
         -- 3-th column  OTU-2 id
 ```
 ##### Suplemental Tabel 4.csv
-Selected 28 known genus-level interactions and corresponding 67 OTUs. Related to Figure 3A. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
+Selected 28 known genus-level interactions and corresponding 67 OTUs. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
