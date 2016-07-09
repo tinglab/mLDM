@@ -7,8 +7,8 @@ Usage:
   3. Source these two files before running mLDM
 
 Input for mLDM.R:
-   n -- the number of samples
-   p -- the number of OTUs
+n -- the number of samples
+p -- the number of OTUs
   q -- the number of environmental factors (EFs)
   X -- n*p matrix, OTU data 
   M -- n*q matrix, Meta data 
