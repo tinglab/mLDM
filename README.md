@@ -8,8 +8,8 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
 
 ##Input Parameters for mLDM.R:
 ```
-  n -- the number of samples 
-  p -- the number of OTUs
+  *n* -- the number of samples 
+  *p* -- the number of OTUs
   q -- the number of environmental factors (EFs) 
   X -- n*p matrix, OTU data 
   M -- n*q matrix, Meta data 
