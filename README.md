@@ -6,29 +6,31 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
   2. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
   3. Source these two files before running mLDM
 
-##Input for mLDM.R: 
->  n -- the number of samples 
->  p -- the number of OTUs
->  q -- the number of environmental factors (EFs) 
->  X -- n*p matrix, OTU data 
->  M -- n*q matrix, Meta data 
->  Z_mean -- a positive integer for initalization for latent variable Z <br/>
-            default is 1, but need to set Z_mean a little bit large when  <br/>
-            the biggest OTU is >> the smallest OTU, try to maintain the  <br/>
-            minimum of latent variable Z >= 0  <br/>
-  max_iteration -- the number of max iterations <br/>
-  threshold -- the threshold for termination <br/>
-  approx_num -- the number of gradient vector to approximate the hessian matrix for Z <br/>
-  max_linesearch -- the number of line search of lbfgs for Z <br/>
-  model_selection_num -- the number of different lambda to select model,  <br/>
-                         the model_selection_num*model_selection_num combinations of lambda1 and lambda2 will be tested <br/>
-  debug -- true / false, whether print intermediate information <br/>
-  approx_num_B -- the number of gradient vector to approximate the hessian matrix for B <br/>
-  max_linesearch_B -- the number of line search of proximal method for B  <br/>
-  max_iteration_B -- the max iterations for B <br/>
-  threshold_B -- the threshold for termination for B <br/>
-  delta1_threshold_B and delta2_threshold_B -- the parameters of line search based on strong wolfe condition for B <br/>
-  sy_threshold_B -- test to maintain positive definite for hessian approximation for B, when < sy_threshold_B, choose steepest  descent method <br/>
+```
+##Input Parameters for mLDM.R: 
+  n -- the number of samples 
+  p -- the number of OTUs
+  q -- the number of environmental factors (EFs) 
+  X -- n*p matrix, OTU data 
+  M -- n*q matrix, Meta data 
+  Z_mean -- a positive integer for initalization for latent variable Z 
+            default is 1, but need to set Z_mean a little bit large when
+            the biggest OTU is >> the smallest OTU, try to maintain the 
+            minimum of latent variable Z >= 0 
+  max_iteration -- the number of max iterations 
+  threshold -- the threshold for termination 
+  approx_num -- the number of gradient vector to approximate the hessian matrix for Z 
+  max_linesearch -- the number of line search of lbfgs for Z 
+  model_selection_num -- the number of different lambda to select model,  
+                         the model_selection_num*model_selection_num combinations of lambda1 and lambda2 will be tested 
+  debug -- true / false, whether print intermediate information 
+  approx_num_B -- the number of gradient vector to approximate the hessian matrix for B 
+  max_linesearch_B -- the number of line search of proximal method for B
+  max_iteration_B -- the max iterations for B 
+  threshold_B -- the threshold for termination for B 
+  delta1_threshold_B and delta2_threshold_B -- the parameters of line search based on strong wolfe condition for B 
+  sy_threshold_B -- test to maintain positive definite for hessian approximation for B, when < sy_threshold_B, choose steepest  descent method
+```
 
 ## TARA
 ### TARA_Validation_dataset.RData
