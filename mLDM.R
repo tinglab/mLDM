@@ -3,13 +3,22 @@
 # ------------------------------------------------------------------
 # return association networks among OTUs and between EFs and OTUs
 ####################################################################
+# pre requests
+# ----------------------------------------
+# R packages: lbfgs, QUIC, dirmult, psych, MASS should be installed first!
+#
+####################################################################
 # Input
 # ----------------------------------------
 # n -- the number of samples
 # p -- the number of OTUs
 # q -- the number of environmental factors (EFs)
 # X -- n*p matrix, OTU data 
-# M -- n*q matrix, Meta data
+# M -- n*q matrix, Meta data 
+# Z_mean -- a positive integer for initalization for latent variable Z
+#           default is 1, but need to set Z_mean a little bit large when 
+#           the biggest OTU is >> the smallest OTU, try to maintain the 
+#           minimum of latent variable Z >= 0
 # max_iteration -- the number of max iterations
 # threshold -- the threshold for termination
 # approx_num -- the number of gradient vector to approximate the hessian matrix for Z
@@ -26,7 +35,20 @@
 ##########################################
 # Output
 # ----------------------------------------
-#
+# return a list consists of estimated parameters of mLDM
+# ----------------------------------------
+# list[[1]] -- q*p matrix, EF-OTU associations
+# list[[2]] -- p*1 vector, basic absolute abundance
+# list[[3]] -- p*p matrix, OTU-OTU associations
+# list[[4]] -- n*p matrix, latent parameters
+# list[[5]] -- lambda1, selected optimal penalty for Theta : lambda1*||Theta||_1
+# list[[6]] -- lambda2, selected optimal penalty for B : lambda2*||B||_1
+# list[[7]] -- objList, list of valued of objective function for every iteration
+# list[[8]] -- EBIC, final EBIC value for model selection 
+# list[[9]] -- edges1_list, number of OTU-OTU associations for every iteration 
+# list[[10]] -- edges2_list, number of EF-OTU associations for every iterations
+# list[[11]] -- edges1_vary_list, the change of OTU-OTU associations between two iterations
+# list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two iterations
 ##########################################
 library('lbfgs')
 library('QUIC')
@@ -34,7 +56,7 @@ library('dirmult')
 library("psych")
 library("MASS")
 
-mLDM <- function(X, M, Z_mean, max_iteration = 1500, threshold = 1e-5, approx_num_Z = 10, max_linesearch_Z = 30, model_selection_num = 6, debug = FALSE, approx_num_B = 10, max_linesearch_B = 30, max_iteration_B = 1000, threshold_B = 1e-5, delta1_threshold_B = 1e-4, delta2_threshold_B = 0.9, sy_threshold_B = 1e-6, max_iteration_B_coor = 20, threshold_B_coor = 1e-6){
+mLDM <- function(X, M, Z_mean = 1, max_iteration = 1500, threshold = 1e-5, approx_num_Z = 10, max_linesearch_Z = 30, model_selection_num = 6, debug = FALSE, approx_num_B = 10, max_linesearch_B = 30, max_iteration_B = 1000, threshold_B = 1e-5, delta1_threshold_B = 1e-4, delta2_threshold_B = 0.9, sy_threshold_B = 1e-6, max_iteration_B_coor = 20, threshold_B_coor = 1e-6){
 #  source('./Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R')
   M <- scale(M, center = TRUE, scale = TRUE)
   n <- nrow(X)
@@ -67,7 +89,7 @@ mLDM <- function(X, M, Z_mean, max_iteration = 1500, threshold = 1e-5, approx_nu
   }
   Theta_init <- solve(Theta_init)
   # for B0
-  B0_init <- colMeans(Z)
+  B0_init <- colMeans(Z_init)
   
   # set combinations of lambda1 and lambda2
   cor_x_list <- unique(rep(abs(cor_x)))
