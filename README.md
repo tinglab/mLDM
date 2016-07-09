@@ -6,7 +6,7 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
   2. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
   3. Source these two files before running mLDM
 
-##Input Parameters for mLDM.R:
+###Input Parameters for mLDM.R:
 ```
   n -- the number of samples 
   p -- the number of OTUs
@@ -31,7 +31,22 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
   delta1_threshold_B and delta2_threshold_B -- the parameters of line search based on strong wolfe condition for B 
   sy_threshold_B -- test to maintain positive definite for hessian approximation for B, when < sy_threshold_B, choose steepest  descent method
 ```
-
+###Output Parameters for mLDM.R:
+return a list consists of estimated parameters of mLDM
+```
+list[[1]] -- q*p matrix, EF-OTU associations
+list[[2]] -- p*1 vector, basic absolute abundance
+list[[3]] -- p*p matrix, OTU-OTU associations
+list[[4]] -- n*p matrix, latent parameters
+list[[5]] -- lambda1, selected optimal penalty for Theta : lambda1*||Theta||_1
+list[[6]] -- lambda2, selected optimal penalty for B : lambda2*||B||_1
+list[[7]] -- objList, list of valued of objective function for every iteration
+list[[8]] -- EBIC, final EBIC value for model selection 
+list[[9]] -- edges1_list, number of OTU-OTU associations for every iteration 
+list[[10]] -- edges2_list, number of EF-OTU associations for every iterations
+list[[11]] -- edges1_vary_list, the change of OTU-OTU associations between two iterations
+list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two iterations
+```
 ## TARA
 ### TARA_Validation_dataset.RData
  * Selected subset data (67 OTUs, 17 EFs, 221 Samples and 28 known genus-level associations) of original TARA data for validation
