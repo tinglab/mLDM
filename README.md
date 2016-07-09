@@ -47,7 +47,7 @@ list[[10]] -- edges2_list, number of EF-OTU associations for every iterations
 list[[11]] -- edges1_vary_list, the change of OTU-OTU associations between two iterations
 list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two iterations
 ```
-## TARA
+### TARA
 #####TARA_Validation_dataset.RData
   Selected subset data (67 OTUs, 17 EFs, 221 Samples and 28 known genus-level associations) of original TARA data for validation
 ```
@@ -64,3 +64,28 @@ list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two it
 ```
 #####Suplemental Tabel 4.csv
 Selected 28 known genus-level interactions and corresponding 67 OTUs. This table is subset of the original provided by TARA OCEANS project website (http://www.raeslab.org/companion/ocean-interactome.html).
+
+### CRC
+#####Baxter_CRC.RData
+   X   N*P matrix  N samples, P otus  OTU table (N = 490, P = 117)
+   M   N*Q matrix  N samples, P environmental factors (Q = 13)
+       We encode 'site' (4 cities), 'Dx_bin' (5 diagnosis states) and 'Gender' (male and female) with 0-1 coding and get 4, 5, 2 features respectively.
+   X_name  OTU numbers for 117 OTUs
+   X_tax   OTU taxonomy for 117 OTUs
+#####glne007.csv
+OTU table used by mLDM
+#####metadata.csv
+Meta data used by mLDM
+
+###HMP
+#####HMP-All.RData
+   X   N*P matrix  N samples, P otus  OTU table (N = 112, P = 110)
+   M   N*Q matrix  N samples, P environmental factors (Q = 3)
+       We encode 'Gender' with 0-1 coding and get 2 features.
+#####HMP_2_groups.RData
+   X_two   a list consist of two subsets of 112 samples
+           we distribute samples according to their visit number of the same subject.
+           every subset has 95 samples
+   M_two   meta data related to two subsets
+#####v13_map_uniquebyPDN_stool.csv
+   Human stool samples we selected
