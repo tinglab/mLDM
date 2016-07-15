@@ -101,3 +101,11 @@ Meta data used by mLDM
 ###West English Channel dataset 
 ######48 not zero data.RData
 Subset of West English Channel dataset selected by mLDM
+```
+   X  N*P matrix N samples, P otus   OTU table (N=47, P=48)
+   M  N*Q matrix N samples, Q environmental factors (Q=8)
+   X_class  OTUs' annotation on phylum level
+   X_name   OTU labels for P=48 OTUs
+   X_tax    OTUs' annotation in detail
+   M_name   names of environmental factors
+```
