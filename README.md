@@ -3,8 +3,18 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
 
 ##USAGE:
   1. R packages: lbfgs, QUIC, dirmult, psych, MASS should be installed first!
-  2. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
-  3. Source these two files before running mLDM
+  2. two approaches to use mLDM: 
+    2.1  a. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
+         b. Source these two files before running mLDM
+
+    2.2  a. Download the R package mLDM.tar.gz and install.packages('PATH/mLDM.tar.gz', repos=NULL, type="source")
+         b. library(mLDM)
+         c. help(mLDM)
+         
+### R package:
+'''
+  mLDM.tar.gz
+'''
 
 ###Input Parameters for mLDM.R:
 ```
