@@ -3,22 +3,22 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
 
 ##USAGE:
 ```
-  1. R packages: lbfgs, QUIC, dirmult, psych, MASS should be installed first!
+  1. R packages: lbfgs, QUIC, Rcpp, RcppEigen should be installed first!
   2. two approaches to use mLDM: 
-    2.1  a. Download the mLDM.R and Lognormal-Dirichlet-Multinomial-lbfgs-proximal-split-q-active-set-quic.R
-         b. Source these two files before running mLDM
+    2.1  a. Download the mLDM.cpp
+         b. library(Rcpp), library(RcppEigen), library(lbfgs), library(QUIC), and sourceCpp("mLDM.cpp")
 
-    2.2  a. Download the R package mLDM.tar.gz and install.packages('PATH/mLDM.tar.gz', repos=NULL, type="source")
+    2.2  a. Download the R package mLDM_1.0.tar.gz and install.packages('PATH/mLDM_1.0.tar.gz', repos=NULL, type="source")
          b. library(mLDM)
          c. help(mLDM)
 ```
 
 ### R package:
 ```
-  mLDM.tar.gz
+  mLDM_1.0.tar.gz
 ```
 
-###Input Parameters for mLDM.R:
+###Input Parameters for mLDM:
 ```
   n -- the number of samples 
   p -- the number of OTUs
@@ -35,29 +35,28 @@ mLDM: a new hierarchical Bayesian statistical model for sparse microbial associa
   max_linesearch -- the number of line search of lbfgs for Z 
   model_selection_num -- the number of different lambda to select model,  
                          the model_selection_num*model_selection_num combinations of lambda1 and lambda2 will be tested 
-  debug -- true / false, whether print intermediate information 
   approx_num_B -- the number of gradient vector to approximate the hessian matrix for B 
   max_linesearch_B -- the number of line search of proximal method for B
   max_iteration_B -- the max iterations for B 
   threshold_B -- the threshold for termination for B 
   delta1_threshold_B and delta2_threshold_B -- the parameters of line search based on strong wolfe condition for B 
   sy_threshold_B -- test to maintain positive definite for hessian approximation for B, when < sy_threshold_B, choose steepest  descent method
+  max_iteration_B_coor -- The max iteration of coordinate descent when optimize B
+  threshold_B_coor -- Stop the coordinate descent when the the variation of the direction samll than the threshold
+  ratio1 -- Set ratio1 to control minimum values of lambda1 and lambda2.
+  ratio2 -- Set ratio2 to control maximum values of lambda1 and lambda2.
+  verbose -- Set FALSE to run mLDM at a silent mode; set TRUE to see the debug information from the program.
 ```
-###Output Parameters for mLDM.R:
-return a list consists of estimated parameters of mLDM
+###Output Parameters for mLDM:
+return a list consists of optimal and all results used in model selection
 ```
-list[[1]] -- q*p matrix, EF-OTU associations
-list[[2]] -- p*1 vector, basic absolute abundance
-list[[3]] -- p*p matrix, OTU-OTU associations
-list[[4]] -- n*p matrix, latent parameters
-list[[5]] -- lambda1, selected optimal penalty for Theta : lambda1*||Theta||_1
-list[[6]] -- lambda2, selected optimal penalty for B : lambda2*||B||_1
-list[[7]] -- objList, list of valued of objective function for every iteration
-list[[8]] -- EBIC, final EBIC value for model selection 
-list[[9]] -- edges1_list, number of OTU-OTU associations for every iteration 
-list[[10]] -- edges2_list, number of EF-OTU associations for every iterations
-list[[11]] -- edges1_vary_list, the change of OTU-OTU associations between two iterations
-list[[12]] -- edges2_vary_list, the change of EF-OTU associations between two iterations
+  a list consists of optimal and all results from mLDM are returned:
+  list$optimal -- the optimal result via the model selection
+  list$all -- all results corresponding to different lambda1 and lambda2
+  list$lambda1 -- the list of all lambda1
+  list$lambda2 -- the list of all lambda2
+
+
 ```
 ### TARA
 #####TARA_Validation_dataset.RData
